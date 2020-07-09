@@ -29,7 +29,14 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+        <nav class="navbar fixed-top" style="background-color: #232f3e">
+          <a class="navbar-brand text-white" href="#">PythonPractico</a>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <nav class="navbar fixed-bottom" style="background-color: #232f3e">
+          <a class="navbar-brand text-white" href="#">PythonPractico</a>
+        </nav>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/pythonpractico.js' %}"></script>
