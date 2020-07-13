@@ -4,6 +4,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.admin.edit_handlers import StreamFieldPanel
 
 class HomePage(Page):
     pass
