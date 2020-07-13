@@ -23,3 +23,7 @@ class ArticlePage(Page):
             icon="pilcrow"
         )),
     ])
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]
