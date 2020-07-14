@@ -25,6 +25,6 @@ class ArticlePage(Page):
     ])
 
     content_panels = Page.content_panels + [
-        FieldPanel('introduction', classname="full"),
+        FieldPanel('intro', classname="full"),
         StreamFieldPanel('body'),
     ]
