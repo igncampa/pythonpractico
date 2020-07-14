@@ -18,11 +18,12 @@ class ArticlePage(Page):
     intro = models.TextField()
 
     body = StreamField([
-        ('paragraph', blocks.RichTextBlock(icon="pilcrow")),
-        ('html', blocks.RawHTMLBlock()),
+        ('paragraph', blocks.RichTextBlock()),
+        ('html',  blocks.RawHTMLBlock()),
+        ('code',  blocks.RawHTMLBlock()),
         ('table', blocks.RawHTMLBlock()),
         ('image', ImageChooserBlock()),
-        ('embed', EmbedBlock(icon="media")),
+        ('embed', EmbedBlock()),
     ])
 
     content_panels = Page.content_panels + [
