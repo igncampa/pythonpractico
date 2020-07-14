@@ -20,6 +20,7 @@ class ArticlePage(Page):
     body = StreamField([
         ('paragraph', blocks.RichTextBlock(icon="pilcrow")),
         ('html', blocks.RawHTMLBlock()),
+        ('table', blocks.RawHTMLBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock(icon="media")),
     ])

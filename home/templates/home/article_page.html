@@ -7,6 +7,12 @@
 
 {% block content %}
 <div class="container py-5">
-  {% include_block page.body %}
+  {% for block in page.body %}
+    {% if block.block_type == 'table' %}
+      <div class="table-responsive">{{ block.value }}</div>
+    {% else %}
+      {% include_block block %}
+    {% endif %}
+  {% endfor %}
 </div>
 {% endblock content %}
