@@ -7,18 +7,22 @@
 
 {% block content %}
 <div class="container py-5">
-  <div class="row">
-    <div class="col">
-      {% for block in page.body %}
-        {% if block.block_type == 'table' %}
+  <div class="row justify-content-center">
+    {% for block in page.body %}
+      {% if block.block_type == 'table' %}
+        <div class="col-12">
           <div class="table-responsive">{{ block.value }}</div>
-        {% elif block.block_type == 'code' %}
+        </div>
+      {% elif block.block_type == 'code' %}
+        <div class="col-8">
           <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
-        {% else %}
+        </div>
+      {% else %}
+        <div class="col-8">
           {% include_block block %}
-        {% endif %}
-      {% endfor %}
-    </div>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}
