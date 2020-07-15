@@ -10,7 +10,7 @@
   <div class="row justify-content-center">
     {% for block in page.body %}
       {% if block.block_type == 'table' %}
-        <div class="col-12">
+        <div class="col-8 col-lg-10">
           <div class="table-responsive">{{ block.value }}</div>
         </div>
       {% elif block.block_type == 'code' %}
