@@ -19,11 +19,11 @@ class ArticlePage(Page):
 
     body = StreamField([
         ('paragraph', blocks.RichTextBlock()),
-        ('html',  blocks.RawHTMLBlock()),
         ('code',  blocks.RawHTMLBlock()),
         ('table', blocks.RawHTMLBlock()),
         ('image', ImageChooserBlock()),
         ('embed', EmbedBlock()),
+        ('html',  blocks.RawHTMLBlock()),
     ])
 
     content_panels = Page.content_panels + [
