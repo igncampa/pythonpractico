@@ -8,7 +8,15 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
 
 class HomePage(Page):
-    pass
+    def get_context(self, request):
+        context = super(HomePage, self).get_context(request)
+
+        recent_articles = (ArticlePage.objects
+            .live()
+            .order_by('-first_published_at')
+        )
+
+        return context
 
 class ArticlePage(Page):
 
