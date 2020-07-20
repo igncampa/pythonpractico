@@ -30,3 +30,13 @@ class ArticlePage(Page):
         FieldPanel('intro', classname="full"),
         StreamFieldPanel('body'),
     ]
+
+    def get_context(self, request):
+        context = super(ArticlePage, self).get_context(request)
+
+        recent_articles = (ArticlePage.objects
+            .live()
+            .order_by('-first_published_at')
+        )
+
+        return context
