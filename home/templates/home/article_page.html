@@ -20,7 +20,7 @@
     {% for block in page.body %}
     {% if block.block_type == 'table' %}
     <div class="row">
-      <div class="col-12 col-lg-1 pr-0 text-right">
+      <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
         Out [ ]:
       </div>
       <div class="col-12 col-lg-11">
@@ -29,7 +29,7 @@
     </div>
     {% elif block.block_type == 'code' %}
     <div class="row">
-      <div class="col-12 col-lg-1 pr-0 text-right">
+      <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
         In [ ]:
       </div>
       <div class="col-12 col-lg-11">
