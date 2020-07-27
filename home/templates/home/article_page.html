@@ -20,8 +20,8 @@
   {% for block in page.body %}
     {% if block.block_type == 'table' %}
     <div class="row">
-      <div class="col-12 col-lg-1">
-        Out []:
+      <div class="col-12 col-lg-1 pr-0">
+        Out [ ]:
       </div>
       <div class="col-12 col-lg-11">
         <div class="table-responsive border mb-3">{{ block.value }}</div>
@@ -32,7 +32,7 @@
     {% elif block.block_type == 'code' %}
     <div class="row">
       <div class="col-12 col-lg-1 pr-0">
-        In []:
+        In [ ]:
       </div>
       <div class="col-12 col-lg-11">
         <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
@@ -42,7 +42,7 @@
 
     {% else %}
     <div class="row">
-      <div class="col-1 pr-0"></div>
+      <div class="col-1"></div>
       <div class="col-11">
       {% include_block block %}
       </div>
