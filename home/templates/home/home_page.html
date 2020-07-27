@@ -19,14 +19,14 @@
   <div class="container py-5">
     <h3 class="text-dark weight-bold">Lo ultimo en el blog</h3>
     {% for article in recent_articles %}
-      <a href="{% pageurl article %}">
+      <!-- <a href="{% pageurl article %}"> -->
         <div class="card border-0 my-3">
           <div class="card-body">
             <h5 class="card-title">{{ article.title }}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
-      </a>
+      <!-- </a> -->
     {% endfor %}
   </div>
 </div>
