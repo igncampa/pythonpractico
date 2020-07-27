@@ -11,7 +11,7 @@ class HomePage(Page):
     def get_context(self, request):
         context = super(HomePage, self).get_context(request)
 
-        recent_articles = ArticlePage.objects.all()
+        context['recent_articles'] = ArticlePage.objects.all()
 
         return context
 
