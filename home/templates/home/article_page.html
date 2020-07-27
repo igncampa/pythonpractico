@@ -11,18 +11,16 @@
     <div class="col-12 col-lg-8">
       <h1 class="d-none d-md-block">{{ page.title }}</h1>
       <h3 class="d-block d-md-none">{{ page.title }}</h3>
-    </div>
-    <div class="col-12 col-lg-8">
-    {% for block in page.body %}
-      {% if block.block_type == 'table' %}
+      {% for block in page.body %}
+        {% if block.block_type == 'table' %}
           <div class="table-responsive border mb-3">{{ block.value }}</div>
-      {% elif block.block_type == 'code' %}
+        {% elif block.block_type == 'code' %}
           <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
-      {% else %}
+        {% else %}
           {% include_block block %}
-      {% endif %}
-    {% endfor %}
-  </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock content %}
