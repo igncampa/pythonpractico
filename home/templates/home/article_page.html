@@ -21,7 +21,7 @@
     {% if block.block_type == 'table' %}
     <div class="row">
       <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
-        Out [ ]:
+        <code>Out [ ]:</code>
       </div>
       <div class="col-12 col-lg-11">
         <div class="table-responsive border mb-3">{{ block.value }}</div>
@@ -30,7 +30,7 @@
     {% elif block.block_type == 'code' %}
     <div class="row">
       <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
-        In [ ]:
+        <code>In [ ]:</code>
       </div>
       <div class="col-12 col-lg-11">
         <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
