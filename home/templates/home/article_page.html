@@ -44,16 +44,16 @@
       </div>
       {% elif block.block_type == 'table' %}
       <div class="row">
-        <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
-          <code>Out []:</code>
-        </div>
+        <div class="col-1 d-none d-lg-block"></div>
         <div class="col-12 col-lg-11">
           <div class="table-responsive border mb-3">{{ block.value }}</div>
         </div>
       </div>
       {% elif block.block_type == 'table_out' %}
       <div class="row">
-        <div class="col-1 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
+          <code>Out []:</code>
+        </div>
         <div class="col-12 col-lg-11">
           <div class="table-responsive border mb-3">{{ block.value }}</div>
         </div>
