@@ -9,42 +9,64 @@
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-9">
-
-    <div class="row">
-      <div class="col-1 d-none d-lg-block"></div>
-      <div class="col-12 col-lg-11">
-        <h1 class="d-none d-md-block">{{ page.title }}</h1>
-        <h3 class="d-block d-md-none">{{ page.title }}</h3>
+      <div class="row">
+        <div class="col-1 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-11">
+          <h1 class="d-none d-md-block">{{ page.title }}</h1>
+          <h3 class="d-block d-md-none">{{ page.title }}</h3>
+        </div>
       </div>
-    </div>
-    {% for block in page.body %}
-    {% if block.block_type == 'table' %}
-    <div class="row">
-      <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
-        <code>Out []:</code>
+      {% for block in page.body %}
+      {% if block.block_type == 'code' %}
+      <div class="row">
+        <div class="col-1 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-11">
+          <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
+        </div>
       </div>
-      <div class="col-12 col-lg-11">
-        <div class="table-responsive border mb-3">{{ block.value }}</div>
+      {% elif block.block_type == 'code_in' %}
+      <div class="row">
+        <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
+          <code style="color: green;">In []:</code>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
+        </div>
       </div>
-    </div>
-    {% elif block.block_type == 'code' %}
-    <div class="row">
-      <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
-        <code>In []:</code>
+      {% elif block.block_type == 'code_out' %}
+      <div class="row">
+        <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
+          <code>Out []:</code>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
+        </div>
       </div>
-      <div class="col-12 col-lg-11">
-        <div class="bg-light border p-3 mb-3"><pre class="mb-0"><code>{{ block.value }}</code></pre></div>
+      {% elif block.block_type == 'table' %}
+      <div class="row">
+        <div class="col-12 col-lg-1 pr-0 text-left text-lg-right">
+          <code>Out []:</code>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="table-responsive border mb-3">{{ block.value }}</div>
+        </div>
       </div>
-    </div>
-    {% else %}
-    <div class="row">
-      <div class="col-1 d-none d-lg-block"></div>
-      <div class="col-12 col-lg-11">
-      {% include_block block %}
+      {% elif block.block_type == 'table_out' %}
+      <div class="row">
+        <div class="col-1 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-11">
+          <div class="table-responsive border mb-3">{{ block.value }}</div>
+        </div>
       </div>
-    </div>
-    {% endif %}
-    {% endfor %}
+      {% else %}
+      <div class="row">
+        <div class="col-1 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-11">
+          {% include_block block %}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>

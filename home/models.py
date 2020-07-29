@@ -11,7 +11,10 @@ class HomePage(Page):
     def get_context(self, request):
         context = super(HomePage, self).get_context(request)
 
-        context['recent_articles'] = ArticlePage.objects.all()
+        context['recent_articles'] = (ArticlePage.objects
+            .live()
+            .order_by('-first_published_at')
+        )
 
         return context
 
@@ -24,11 +27,14 @@ class ArticlePage(Page):
 
     body = StreamField([
         ('paragraph', blocks.RichTextBlock()),
-        ('code',  blocks.RawHTMLBlock()),
-        ('table', blocks.RawHTMLBlock()),
-        ('image', ImageChooserBlock()),
-        ('embed', EmbedBlock()),
-        ('html',  blocks.RawHTMLBlock()),
+        ('code',      blocks.RawHTMLBlock()),
+        ('code_in',   blocks.RawHTMLBlock()),
+        ('code_out',  blocks.RawHTMLBlock()),
+        ('table',     blocks.RawHTMLBlock()),
+        ('table_out', blocks.RawHTMLBlock()),
+        ('image',     ImageChooserBlock()),
+        ('embed',     EmbedBlock()),
+        ('html',      blocks.RawHTMLBlock()),
     ])
 
     content_panels = Page.content_panels + [
